@@ -1,81 +1,262 @@
+/* General Body Styling */
 body {
     margin: 0;
     padding: 0;
     font-family: 'Roboto', sans-serif;
-    background-image: url('/Users/dhruvipatel/101420473_comp3123_labtest2/public/images/pexels-alexander-f-ungerer-157458816-29560273.jpg');
-    background-size: cover;
-    background-position: center;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); /* Dark gradient background to match your portfolio */
     color: white;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
+/* Main Weather App Container */
 .weather-app {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 20px;
+    padding: 30px;
+    background: rgba(0, 0, 0, 0.6); /* Semi-transparent background */
+    border-radius: 25px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6); /* Deep shadow for 3D effect */
+    backdrop-filter: blur(15px); /* Glassmorphism effect */
+    width: 90%;
+    max-width: 1200px; /* Wider container for horizontal layout */
+    margin: 20px;
 }
 
+/* Form Styling (Search Bar) */
 form {
     display: flex;
     justify-content: center;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
+    gap: 15px;
 }
 
 input {
-    padding: 10px;
-    border-radius: 10px;
+    padding: 12px 20px;
+    border-radius: 20px;
     border: none;
     font-size: 16px;
-    margin-right: 10px;
+    background: rgba(255, 255, 255, 0.15);
+    color: white;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4); /* 3D shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+input:focus {
+    outline: none;
+    transform: translateY(-5px); /* 3D lift effect on focus */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
 }
 
 button {
-    padding: 10px;
-    background: #0078ff;
+    padding: 12px 25px;
+    background: linear-gradient(135deg, #00c4ff, #0078ff); /* Glowing gradient */
     color: white;
     border: none;
-    border-radius: 10px;
+    border-radius: 20px;
     cursor: pointer;
+    font-size: 16px;
+    box-shadow: 0 5px 15px rgba(0, 123, 255, 0.5); /* Glowing shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+button:hover {
+    transform: translateY(-5px) rotateX(15deg); /* 3D tilt on hover */
+    box-shadow: 0 10px 20px rgba(0, 123, 255, 0.8);
+}
+
+/* Main Weather Content Container (Horizontal Layout) */
+.weather-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 30px;
+    width: 100%;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+}
+
+/* Current Weather Section */
 .current-weather {
-    background: rgba(0, 0, 0, 0.7);
-    border-radius: 15px;
-    padding: 20px;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.9), rgba(0, 0, 50, 0.7));
+    border-radius: 20px;
+    padding: 30px;
     text-align: center;
-    margin-bottom: 20px;
-    width: 90%;
-    max-width: 500px;
+    flex: 1;
+    min-width: 350px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); /* Deep shadow for 3D effect */
+    transform: perspective(1000px) rotateY(-5deg); /* 3D perspective */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.current-weather:hover {
+    transform: perspective(1000px) rotateY(0deg); /* Straighten on hover */
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7);
+}
+
+.current-weather-header p {
+    font-size: 14px;
+    opacity: 0.8;
+    margin-bottom: 5px;
+}
+
+.current-weather-header h2 {
+    font-size: 28px;
+    margin: 5px 0;
+    text-shadow: 0 0 10px rgba(0, 196, 255, 0.5); /* Glowing text */
+}
+
+.current-weather-body {
+    margin: 20px 0;
 }
 
 .current-weather-body .current-temp {
-    font-size: 48px;
+    font-size: 60px;
     font-weight: bold;
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.5); /* Glowing temperature */
 }
 
-.forecast-container {
-    background: rgba(255, 255, 255, 0.9);
-    color: black;
+.current-weather-body p {
+    font-size: 18px;
+    text-transform: capitalize;
+    margin: 5px 0;
+}
+
+.additional-info {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.additional-info p {
+    font-size: 14px;
+    background: rgba(255, 255, 255, 0.15);
+    padding: 10px 15px;
     border-radius: 15px;
-    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* 3D shadow for info cards */
+    transition: transform 0.3s ease;
+}
+
+.additional-info p:hover {
+    transform: translateZ(10px); /* 3D lift on hover */
+}
+
+/* Weather Forecast Section */
+.forecast-container {
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.9), rgba(0, 0, 50, 0.7));
+    color: white;
+    border-radius: 20px;
+    padding: 30px;
+    flex: 1;
+    min-width: 350px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); /* Deep shadow for 3D effect */
+    transform: perspective(1000px) rotateY(5deg); /* 3D perspective */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.forecast-container:hover {
+    transform: perspective(1000px) rotateY(0deg); /* Straighten on hover */
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7);
+}
+
+.forecast-container h3 {
+    font-size: 24px;
+    margin-bottom: 20px;
     text-align: center;
-    width: 90%;
-    max-width: 500px;
+    text-shadow: 0 0 10px rgba(0, 196, 255, 0.5); /* Glowing text */
 }
 
 .forecast-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
+    display: flex;
+    justify-content: space-around;
+    gap: 15px;
+    flex-wrap: wrap; /* Allow wrapping for smaller screens */
 }
 
 .forecast-card {
-    background: rgba(0, 0, 0, 0.6);
-    border-radius: 10px;
-    padding: 10px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(0, 0, 50, 0.3));
+    border-radius: 15px;
+    padding: 15px;
     text-align: center;
     color: white;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* 3D shadow */
+    transform: translateZ(20px); /* 3D lift effect */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    min-width: 100px;
 }
 
+.forecast-card:hover {
+    transform: translateZ(40px) rotateY(10deg); /* 3D pop-out on hover */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
 
+.forecast-card p {
+    margin: 5px 0;
+    font-size: 16px;
+}
 
+.forecast-card img {
+    width: 50px;
+    height: 50px;
+    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.5)); /* Glowing icon */
+}
+
+/* Weather Display Section (from WeatherDisplay.js) */
+.weather-details {
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.9), rgba(0, 0, 50, 0.7));
+    border-radius: 20px;
+    padding: 30px;
+    text-align: center;
+    flex: 1;
+    min-width: 350px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    transform: perspective(1000px) rotateY(-5deg);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.weather-details:hover {
+    transform: perspective(1000px) rotateY(0deg);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7);
+}
+
+.weather-details h2 {
+    font-size: 28px;
+    margin-bottom: 10px;
+    text-shadow: 0 0 10px rgba(0, 196, 255, 0.5);
+}
+
+.weather-details img {
+    width: 80px;
+    height: 80px;
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5)); /* Glowing weather icon */
+}
+
+.weather-details p {
+    font-size: 16px;
+    margin: 5px 0;
+    background: rgba(255, 255, 255, 0.15);
+    padding: 8px 15px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .weather-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .current-weather, .forecast-container, .weather-details {
+        transform: perspective(1000px) rotateY(0deg); /* Remove tilt on smaller screens */
+    }
+
+    .forecast-grid {
+        flex-direction: row;
+        justify-content: center;
+    }
+}
